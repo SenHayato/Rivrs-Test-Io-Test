@@ -751,7 +751,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 948481859}
-  - component: {fileID: 948481862}
+  - component: {fileID: 948481864}
   - component: {fileID: 948481858}
   - component: {fileID: 948481863}
   - component: {fileID: 948481861}
@@ -854,22 +854,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &948481862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 948481857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 216abd14315352b4f9bf3ffe6aa86c03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerState: 0
-  moveSpeed: 0
-  animator: {fileID: 0}
-  inputActive: {fileID: 0}
 --- !u!143 &948481863
 CharacterController:
   m_ObjectHideFlags: 0
@@ -895,6 +879,24 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &948481864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948481857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3702a8b6c662db45bd7a7035527eb1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
+  moveInput: 0
+  jumping: 0
+  characterController: {fileID: 0}
+  animator: {fileID: 0}
+  inputActive: {fileID: 0}
 --- !u!1 &1312152364
 GameObject:
   m_ObjectHideFlags: 0
