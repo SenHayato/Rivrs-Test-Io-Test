@@ -56,25 +56,27 @@ public class NinjaState : MonoBehaviour
         }
     }
 
-    bool wasRunning = false;
     void InputHandler()
     {
         if (inputActive.attackAction.triggered)
         {
             playerState = PlayerState.Attack;
-        }
-        else if (inputActive.jumpAction.triggered)
-        {
-            playerState = PlayerState.Jump;
-        }
-        else if (!wasRunning)
-        {
-
-        }
-        else
-        {
             return;
         }
+
+        if (inputActive.jumpAction.triggered)
+        {
+            playerState = PlayerState.Jump;
+            return;
+        }
+
+        if (inputActive.moveAction.IsPressed())
+        {
+            playerState = PlayerState.Run;
+            return;
+        }
+
+        playerState = PlayerState.Idle;
     }
 
     // Update is called once per frame
