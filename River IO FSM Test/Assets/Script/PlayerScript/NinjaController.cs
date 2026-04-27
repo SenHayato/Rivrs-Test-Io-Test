@@ -50,27 +50,9 @@ public class NinjaController : MonoBehaviour
         finiteStateMachine.Initialize(idleState);
     }
 
-    void PlayerMovement()
-    {
-        Vector2 moveValue = inputActive.moveAction.ReadValue<Vector2>();
-        moveValue.y = 0;
-        moveInput = moveValue.x;
-    }
-
-    void PlayerJump()
-    {
-        if (inputActive.jumpAction.triggered)
-        {
-            jumping = true;
-        }
-    }
-
     // Update is called once per frame
     void Update()
     {
-        PlayerMovement();
-        PlayerJump();
-
         finiteStateMachine.currentState.Update();
     }
 }

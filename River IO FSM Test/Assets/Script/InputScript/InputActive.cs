@@ -5,6 +5,7 @@ public class InputActive : MonoBehaviour
 {
     public static InputActive instance;
     [SerializeField] PlayerInput playerInput;
+    [SerializeField] NinjaController ninjaController;
 
     public InputAction moveAction, attackAction, jumpAction;
 
@@ -19,6 +20,7 @@ public class InputActive : MonoBehaviour
             instance = this;
         }
 
+        ninjaController = FindFirstObjectByType<NinjaController>();
         playerInput = GetComponent<PlayerInput>();
     }
 
@@ -29,21 +31,24 @@ public class InputActive : MonoBehaviour
         jumpAction = playerInput.actions.FindAction("Jump");
     }
 
-    //void Update()
-    //{
-    //    if (moveAction.triggered)
-    //    {
-    //        Debug.Log("Move Input");
-    //    }
+     void PlayerMovement()
+    {
+        Vector2 moveValue = moveAction.ReadValue<Vector2>();
+        moveValue.y = 0;
+        ninjaController.moveInput = moveValue.x;
+    }
 
-    //    if (attackAction.triggered)
-    //    {
-    //        Debug.Log("Attack Input");
-    //    }
+    void PlayerJump()
+    {
+        if (jumpAction.triggered)
+        {
+            ninjaController.jumping = true;
+        }
+    }
 
-    //    if (jumpAction.triggered)
-    //    {
-    //        Debug.Log("Jump Input");
-    //    }
-    //}
+    void Update()
+    {
+        PlayerJump();
+        PlayerMovement();
+    }
 }
