@@ -1069,6 +1069,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac129972d75e4eb4aae4ca58525f9d07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: {fileID: 0}
+  moveAction:
+    m_Name: Move
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 4e9a8969-0895-4c9e-8025-c1b3e5e9d2d1
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  attackAction:
+    m_Name: Attack
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: dc5afb28-5d47-42d7-b5db-65803949d518
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  jumpAction:
+    m_Name: Jump
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 14890849-6fe3-43f1-999f-bb8ebda29d9f
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!114 &1495806010
 MonoBehaviour:
   m_ObjectHideFlags: 0
