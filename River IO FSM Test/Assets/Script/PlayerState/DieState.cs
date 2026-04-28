@@ -10,10 +10,12 @@ namespace PlayerStates
         public override void Enter()
         {
             ninjaController.animator.SetBool("isDie", true);
+            ninjaController.dying = true;
         }
 
         public override void Exit()
         {
+            ninjaController.dying = false;
             ninjaController.animator.SetBool("isDie", false);
         }
     }

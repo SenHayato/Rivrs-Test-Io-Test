@@ -29,6 +29,10 @@ namespace PlayerStates
             {
                 finiteStateMachine.ChangeState(ninjaController.attackState);
             }
+            else if (ninjaController.dying)
+            {
+                finiteStateMachine.ChangeState(ninjaController.dieState);
+            }
 
             //flip
             if (ninjaController.moveInput > 0.1f)

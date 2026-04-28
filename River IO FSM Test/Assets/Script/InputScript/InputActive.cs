@@ -40,7 +40,7 @@ public class InputActive : MonoBehaviour
 
     void PlayerJump()
     {
-        if (jumpAction.triggered)
+        if (jumpAction.triggered && !ninjaController.attacking)
         {
             ninjaController.jumping = true;
         }
@@ -48,7 +48,7 @@ public class InputActive : MonoBehaviour
 
     void PlayerAttack()
     {
-        if (attackAction.triggered)
+        if (attackAction.triggered && !ninjaController.jumping)
         {
             ninjaController.attacking = true;
         }
@@ -56,8 +56,11 @@ public class InputActive : MonoBehaviour
 
     void Update()
     {
-        PlayerJump();
-        PlayerMovement();
-        PlayerAttack();
+        if (!ninjaController.dying)
+        {
+            PlayerJump();
+            PlayerMovement();
+            PlayerAttack();
+        }
     }
 }

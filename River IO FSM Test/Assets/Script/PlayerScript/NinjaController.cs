@@ -95,14 +95,8 @@ public class NinjaController : MonoBehaviour
 
     public void PlayerJump()
     {
-        
+        myRigidbody.linearVelocity = new(moveInput, 10f);
     }
-
-    //IEnumerator PlayerToJump()
-    //{
-    //    myRigidbody.linearVelocity = new(moveInput, 5f);
-    //    yield return new WaitForSeconds()
-    //}
 
     public void StopState() //Panggil di Animation
     {

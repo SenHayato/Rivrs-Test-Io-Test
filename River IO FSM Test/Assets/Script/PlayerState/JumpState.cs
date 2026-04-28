@@ -13,20 +13,21 @@ namespace PlayerStates
             Debug.Log("Jump masuk");
             ninjaController.animator.SetBool("isJumping", true);
             ninjaController.grounded = false;
+            ninjaController.myRigidbody.linearVelocity = new(ninjaController.moveInput * 3f, 13f);
         }
 
         public override void Update()
         {
             Debug.Log("Jump Teros");
 
-            //if (ninjaController.jumping && !ninjaController.grounded)
-            //{
-            //    PlayerJump();
-            //}
-            //else
-            //{
-            //    Exit();
-            //}
+            if (ninjaController.grounded)
+            {
+                finiteStateMachine.ChangeState(ninjaController.idleState);
+            }
+            else if (ninjaController.hurting)
+            {
+                finiteStateMachine.ChangeState(ninjaController.hurtState);
+            }
         }
 
         public override void Exit()
@@ -34,7 +35,6 @@ namespace PlayerStates
             ninjaController.animator.SetBool("isJumping", false);
             ninjaController.jumping = false;
             Debug.Log("Jump keluar");
-            return;
         }
     }
 
