@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace PlayerStates
@@ -10,18 +11,30 @@ namespace PlayerStates
         public override void Enter()
         {
             Debug.Log("Jump masuk");
-            base.Enter();
+            ninjaController.animator.SetBool("isJumping", true);
+            ninjaController.grounded = false;
         }
 
         public override void Update()
         {
             Debug.Log("Jump Teros");
+
+            //if (ninjaController.jumping && !ninjaController.grounded)
+            //{
+            //    PlayerJump();
+            //}
+            //else
+            //{
+            //    Exit();
+            //}
         }
 
         public override void Exit()
         {
+            ninjaController.animator.SetBool("isJumping", false);
+            ninjaController.jumping = false;
             Debug.Log("Jump keluar");
-            base.Exit();
+            return;
         }
     }
 

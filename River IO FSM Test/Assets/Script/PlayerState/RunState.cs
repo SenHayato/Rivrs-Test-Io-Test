@@ -11,7 +11,7 @@ namespace PlayerStates
         {
             Debug.Log("Run masuk");
             ninjaController.animator.SetBool("isRunning", true);
-            base.Enter();
+            //base.Enter();
         }
 
         public override void Update()
@@ -24,6 +24,10 @@ namespace PlayerStates
             else if (ninjaController.jumping)
             {
                 finiteStateMachine.ChangeState(ninjaController.jumpState);
+            }
+            else if (ninjaController.attacking)
+            {
+                finiteStateMachine.ChangeState(ninjaController.attackState);
             }
 
             //flip
@@ -41,7 +45,6 @@ namespace PlayerStates
         {
             Debug.Log("Run keluar");
             ninjaController.animator.SetBool("isRunning", false);
-            base.Exit();
         }
     }
 

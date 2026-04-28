@@ -11,22 +11,40 @@ namespace PlayerStates
         {
             Debug.Log("Idle masuk");
             ninjaController.animator.SetBool("isIdle", true);
-            base.Enter();
         }
 
         public override void Update()
         {
-            if (ninjaController.moveInput != 0)
+            if (!ninjaController.dying)
             {
-                finiteStateMachine.ChangeState(ninjaController.runState);
+                if (ninjaController.moveInput != 0)
+                {
+                    finiteStateMachine.ChangeState(ninjaController.runState);
+                }
+                else if (ninjaController.jumping)
+                {
+                    finiteStateMachine.ChangeState(ninjaController.jumpState);
+                }
+                else if (ninjaController.hurting)
+                {
+                    finiteStateMachine.ChangeState(ninjaController.hurtState);
+                }
+                else if (ninjaController.attacking)
+                {
+                    finiteStateMachine.ChangeState(ninjaController.attackState);
+                }
             }
+            else
+            {
+                finiteStateMachine.ChangeState(ninjaController.dieState);
+            }
+            
         }
 
         public override void Exit()
         {
             ninjaController.animator.SetBool("isIdle", false);
             Debug.Log("Idle keluar");
-            base.Exit();
         }
     }
 }

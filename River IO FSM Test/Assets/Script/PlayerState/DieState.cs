@@ -9,17 +9,12 @@ namespace PlayerStates
 
         public override void Enter()
         {
-            base.Enter();
-        }
-
-        public override void Update()
-        {
-            base.Update();
+            ninjaController.animator.SetBool("isDie", true);
         }
 
         public override void Exit()
         {
-            base.Exit();
+            ninjaController.animator.SetBool("isDie", false);
         }
     }
 

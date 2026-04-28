@@ -9,17 +9,16 @@ namespace PlayerStates
 
         public override void Enter()
         {
-            base.Enter();
-        }
-
-        public override void Update()
-        {
-            base.Update();
+            ninjaController.spriteRenderer.color = Color.red;
+            ninjaController.animator.SetTrigger("isHurt");
+            Debug.Log("Kena Damage");
         }
 
         public override void Exit()
         {
-            base.Exit();
+            ninjaController.hurting = false;
+            ninjaController.spriteRenderer.color = Color.white;
+            Debug.Log("Abis Kena Damage");
         }
     }
 }

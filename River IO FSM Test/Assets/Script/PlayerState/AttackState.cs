@@ -8,19 +8,14 @@ namespace PlayerStates
             : base(ninjaController, finiteStateMachine) { }
         public override void Enter()
         {
-            Debug.Log("Attack masuk");
-            base.Enter();
-        }
-
-        public override void Update()
-        {
-            base.Update();
+            Debug.Log("Attack Masuk");
+            ninjaController.animator.SetTrigger("isAttacking");
         }
 
         public override void Exit()
         {
-            Debug.Log("Attack keluar");
-            base.Exit();
+            ninjaController.attacking = false;
+            Debug.Log("Attack Keluar");
         }
     }
 }

@@ -46,9 +46,18 @@ public class InputActive : MonoBehaviour
         }
     }
 
+    void PlayerAttack()
+    {
+        if (attackAction.triggered)
+        {
+            ninjaController.attacking = true;
+        }
+    }
+
     void Update()
     {
         PlayerJump();
         PlayerMovement();
+        PlayerAttack();
     }
 }
